@@ -32,7 +32,7 @@ namespace WebElementMonitor
                 this.Profile = new MonitoringProfile();
                 this.Text = "Add new Profile";
                 txtName.Text = Profile.ProfileName;
-                txtName.Text = Profile.Url;
+                txtUrl.Text = Profile.Url;
                 txtElementId.Text = Profile.ElementId;
                 numIntervalMinutes.Value = Profile.IntervalMinutes;
             }

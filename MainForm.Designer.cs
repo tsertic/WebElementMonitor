@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            cmbProfiles = new ComboBox();
-            btnAddProfile = new Button();
-            btnEditProfile = new Button();
             btnDeleteProfile = new Button();
+            btnEditProfile = new Button();
+            btnAddProfile = new Button();
+            cmbProfiles = new ComboBox();
+            label1 = new Label();
             groupBox2 = new GroupBox();
-            label2 = new Label();
-            lblDisplayUrl = new Label();
-            label3 = new Label();
-            lblDisplayElementId = new Label();
-            label4 = new Label();
-            numInterval = new NumericUpDown();
             btnStartStop = new Button();
+            numInterval = new NumericUpDown();
+            label4 = new Label();
+            lblDisplayElementId = new Label();
+            label3 = new Label();
+            lblDisplayUrl = new Label();
+            label2 = new Label();
             lblStatus = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -63,14 +63,35 @@
             groupBox1.Text = "Profile Management";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // label1
+            // btnDeleteProfile
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 35);
-            label1.Name = "label1";
-            label1.Size = new Size(107, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Monitoring Profile:";
+            btnDeleteProfile.Location = new Point(221, 87);
+            btnDeleteProfile.Name = "btnDeleteProfile";
+            btnDeleteProfile.Size = new Size(75, 23);
+            btnDeleteProfile.TabIndex = 4;
+            btnDeleteProfile.Text = "Delete";
+            btnDeleteProfile.UseVisualStyleBackColor = true;
+            btnDeleteProfile.Click += btnDeleteProfile_Click;
+            // 
+            // btnEditProfile
+            // 
+            btnEditProfile.Location = new Point(122, 87);
+            btnEditProfile.Name = "btnEditProfile";
+            btnEditProfile.Size = new Size(75, 23);
+            btnEditProfile.TabIndex = 3;
+            btnEditProfile.Text = "Edit...";
+            btnEditProfile.UseVisualStyleBackColor = true;
+            btnEditProfile.Click += btnEditProfile_Click;
+            // 
+            // btnAddProfile
+            // 
+            btnAddProfile.Location = new Point(16, 87);
+            btnAddProfile.Name = "btnAddProfile";
+            btnAddProfile.Size = new Size(75, 23);
+            btnAddProfile.TabIndex = 2;
+            btnAddProfile.Text = "Add...";
+            btnAddProfile.UseVisualStyleBackColor = true;
+            btnAddProfile.Click += btnAddProfile_Click;
             // 
             // cmbProfiles
             // 
@@ -81,33 +102,16 @@
             cmbProfiles.Name = "cmbProfiles";
             cmbProfiles.Size = new Size(121, 23);
             cmbProfiles.TabIndex = 1;
+            cmbProfiles.SelectedIndexChanged += cmbProfiles_SelectedIndexChanged;
             // 
-            // btnAddProfile
+            // label1
             // 
-            btnAddProfile.Location = new Point(16, 87);
-            btnAddProfile.Name = "btnAddProfile";
-            btnAddProfile.Size = new Size(75, 23);
-            btnAddProfile.TabIndex = 2;
-            btnAddProfile.Text = "Add...";
-            btnAddProfile.UseVisualStyleBackColor = true;
-            // 
-            // btnEditProfile
-            // 
-            btnEditProfile.Location = new Point(122, 87);
-            btnEditProfile.Name = "btnEditProfile";
-            btnEditProfile.Size = new Size(75, 23);
-            btnEditProfile.TabIndex = 3;
-            btnEditProfile.Text = "Edit...";
-            btnEditProfile.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteProfile
-            // 
-            btnDeleteProfile.Location = new Point(221, 87);
-            btnDeleteProfile.Name = "btnDeleteProfile";
-            btnDeleteProfile.Size = new Size(75, 23);
-            btnDeleteProfile.TabIndex = 4;
-            btnDeleteProfile.Text = "Delete";
-            btnDeleteProfile.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(107, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Monitoring Profile:";
             // 
             // groupBox2
             // 
@@ -125,51 +129,15 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Monitoring Control";
             // 
-            // label2
+            // btnStartStop
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(16, 38);
-            label2.Name = "label2";
-            label2.Size = new Size(28, 15);
-            label2.TabIndex = 0;
-            label2.Text = "URL";
-            // 
-            // lblDisplayUrl
-            // 
-            lblDisplayUrl.BorderStyle = BorderStyle.Fixed3D;
-            lblDisplayUrl.Location = new Point(91, 38);
-            lblDisplayUrl.Name = "lblDisplayUrl";
-            lblDisplayUrl.Size = new Size(243, 15);
-            lblDisplayUrl.TabIndex = 1;
-            lblDisplayUrl.Text = "(select a profile)";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(16, 66);
-            label3.Name = "label3";
-            label3.Size = new Size(64, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Element ID";
-            // 
-            // lblDisplayElementId
-            // 
-            lblDisplayElementId.BorderStyle = BorderStyle.Fixed3D;
-            lblDisplayElementId.Location = new Point(91, 66);
-            lblDisplayElementId.Name = "lblDisplayElementId";
-            lblDisplayElementId.Size = new Size(243, 15);
-            lblDisplayElementId.TabIndex = 3;
-            lblDisplayElementId.Text = "(select a profile)";
-            lblDisplayElementId.Click += label4_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(16, 96);
-            label4.Name = "label4";
-            label4.Size = new Size(139, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Check Interval (minutes):";
+            btnStartStop.Enabled = false;
+            btnStartStop.Location = new Point(96, 136);
+            btnStartStop.Name = "btnStartStop";
+            btnStartStop.Size = new Size(165, 35);
+            btnStartStop.TabIndex = 6;
+            btnStartStop.Text = "Start Monitoring";
+            btnStartStop.UseVisualStyleBackColor = true;
             // 
             // numInterval
             // 
@@ -182,15 +150,51 @@
             numInterval.TabIndex = 5;
             numInterval.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // btnStartStop
+            // label4
             // 
-            btnStartStop.Enabled = false;
-            btnStartStop.Location = new Point(96, 136);
-            btnStartStop.Name = "btnStartStop";
-            btnStartStop.Size = new Size(165, 35);
-            btnStartStop.TabIndex = 6;
-            btnStartStop.Text = "Start Monitoring";
-            btnStartStop.UseVisualStyleBackColor = true;
+            label4.AutoSize = true;
+            label4.Location = new Point(16, 96);
+            label4.Name = "label4";
+            label4.Size = new Size(139, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Check Interval (minutes):";
+            // 
+            // lblDisplayElementId
+            // 
+            lblDisplayElementId.BorderStyle = BorderStyle.Fixed3D;
+            lblDisplayElementId.Location = new Point(91, 66);
+            lblDisplayElementId.Name = "lblDisplayElementId";
+            lblDisplayElementId.Size = new Size(243, 15);
+            lblDisplayElementId.TabIndex = 3;
+            lblDisplayElementId.Text = "(select a profile)";
+            lblDisplayElementId.Click += label4_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 66);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Element ID";
+            // 
+            // lblDisplayUrl
+            // 
+            lblDisplayUrl.BorderStyle = BorderStyle.Fixed3D;
+            lblDisplayUrl.Location = new Point(91, 38);
+            lblDisplayUrl.Name = "lblDisplayUrl";
+            lblDisplayUrl.Size = new Size(243, 15);
+            lblDisplayUrl.TabIndex = 1;
+            lblDisplayUrl.Text = "(select a profile)";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(16, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(28, 15);
+            label2.TabIndex = 0;
+            label2.Text = "URL";
             // 
             // lblStatus
             // 
@@ -212,6 +216,7 @@
             Controls.Add(groupBox1);
             Name = "MainForm";
             Text = "Form1";
+            FormClosing += MainForm_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
