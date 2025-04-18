@@ -61,7 +61,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Profile Management";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // btnDeleteProfile
             // 
@@ -138,6 +137,7 @@
             btnStartStop.TabIndex = 6;
             btnStartStop.Text = "Start Monitoring";
             btnStartStop.UseVisualStyleBackColor = true;
+            btnStartStop.Click += btnStartStop_Click;
             // 
             // numInterval
             // 
@@ -167,7 +167,6 @@
             lblDisplayElementId.Size = new Size(243, 15);
             lblDisplayElementId.TabIndex = 3;
             lblDisplayElementId.Text = "(select a profile)";
-            lblDisplayElementId.Click += label4_Click;
             // 
             // label3
             // 
